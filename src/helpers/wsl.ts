@@ -1,0 +1,18 @@
+import { $, fs } from "zx";
+import ini from "ini";
+
+export interface IConfigureWslConfOptions {
+  defaultUser: string;
+}
+
+// wsl.conf ref: https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configuration-settings-for-wslconf
+export async function configureWslConf(options: IConfigureWslConfOptions) {
+  const configStr = fs.readFileSync(`/etc/wsl.conf`, { encoding: "utf-8" });
+  const config = ini.parse(configStr);
+
+  config.user = {
+    default: options.defaultUser,
+  };
+
+  await $`echo ${ini.stringify(config)} | sudo tee /etc/wsl.conf`;
+}

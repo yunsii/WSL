@@ -1,0 +1,12 @@
+" ref: https://stackoverflow.com/a/1878983/8335317
+set tabstop=4
+set shiftwidth=4
+
+" ref: https://vi.stackexchange.com/a/28017/48038
+set softtabstop=4
+
+" 将 tab 转换为 space
+set expandtab
+
+" 支持鼠标定位，ref: https://stackoverflow.com/a/28616337/8335317
+set mouse=a
