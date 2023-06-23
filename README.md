@@ -11,6 +11,8 @@
 
 ### Windows 11
 
+当前仅在 Windows 11 上测试，有问题欢迎反馈。
+
 #### PowerShell 安装 Ubuntu 2204
 
 ```ps1
