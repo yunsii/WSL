@@ -6,6 +6,7 @@
 
 ## TODOs
 
+- [ ] 创建统一的用户目录
 - [ ] Windows 分享文件
 - [ ] WSL SSH 服务器 / Windows 端口转发
 
