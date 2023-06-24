@@ -2,6 +2,8 @@
 
 我的 Windows 开发环境搭建脚本
 
+> [视频演示](https://www.bilibili.com/video/BV1Fu411h7kD)
+
 ## TODOs
 
 - [ ] Windows 分享文件
@@ -58,3 +60,4 @@ rm -fr $HOME/.wslboot
 ## 相关链接
 
 - [我的 Windows 开发环境搭建手册](https://juejin.cn/post/7079329668028956709)
+- [WSL 2 开发环境脚本搭建演示](https://www.bilibili.com/video/BV1Fu411h7kD)
