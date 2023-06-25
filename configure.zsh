@@ -1,5 +1,7 @@
 #! /bin/zsh
 
+set -e
+
 cd "$HOME/.wslboot" || exit
 
 # zsh 下重装 nvm

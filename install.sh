@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -e
+
 # 克隆代码仓库
 if [ -e "$HOME/.wslboot" ]
 then
