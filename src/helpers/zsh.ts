@@ -2,9 +2,9 @@ import { $, fs } from "zx";
 import { clone } from "./git.js";
 
 export async function installZsh() {
-  await $`sudo apt-get --yes install zsh`;
+  await $`apt-get --yes install zsh`;
   // 将 zsh 设置为默认 Shell，ref: https://askubuntu.com/a/1325754/1681418
-  await $`sudo chsh -s "$(which zsh)" "$(whoami)"`;
+  await $`chsh -s "$(which zsh)" "$(whoami)"`;
 }
 
 export async function installOnMyZsh() {

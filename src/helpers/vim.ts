@@ -4,5 +4,5 @@ export async function configureVim() {
   const vimConfigDir = `${process.env.HOME}/.vim`;
 
   fs.ensureDirSync(vimConfigDir);
-  await $`sudo cp -fR "${process.cwd()}/configs/vimrc" ${vimConfigDir}`;
+  await $`cp -fR "${process.cwd()}/configs/vimrc" ${vimConfigDir}`;
 }
