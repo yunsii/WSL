@@ -8,8 +8,7 @@ export async function updateSourcesList() {
     console.log(`${sourcesListBakPath} already backed up`);
   } else {
     await $`sudo cp ${sourcesListPath} ${sourcesListBakPath}`;
+    await $`sudo cp -fR "${process.cwd()}/configs/sources.list" /etc/apt`;
+    await $`sudo apt-get --yes update`;
   }
-
-  await $`sudo cp -fR "${process.cwd()}/configs/sources.list" /etc/apt`;
-  await $`sudo apt-get --yes update`;
 }
