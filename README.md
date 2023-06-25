@@ -44,9 +44,15 @@ Remove-Item -Path migrate-ubuntu2204.ps1
 curl -o- https://raw.githubusercontent.com/yunsii/WSL/master/install.sh | bash
 ```
 
-> 如果 nvm 下载 Node 失败，可尝试[指定 Node 镜像中科大源](https://mirrors.ustc.edu.cn/help/node.html#nvm-node-js): `export NVM_NODEJS_ORG_MIRROR=https://mirrors.ustc.edu.cn/node/`
-> 
-> 与此同时 npm 镜像源也可以配置下：`export NPM_CONFIG_REGISTRY=https://registry.npmmirror.com`
+如果 nvm 下载 Node 失败，可尝试指定镜像源：
+
+```shell
+# 指定 Node 镜像中科大源，ref: https://mirrors.ustc.edu.cn/help/node.html#nvm-node-js
+export NVM_NODEJS_ORG_MIRROR=https://mirrors.ustc.edu.cn/node/
+
+# 指定 npm 镜像源
+export NPM_CONFIG_REGISTRY=https://registry.npmmirror.com
+```
 
 初始化完成后需要重启终端以使 zsh 做为默认终端启动，注入配置 zsh 需要的相关环境变量，重启后调用[配置 WSL](#配置-wsl) 的脚本即可完成对于 WSL 各项功能的基本定制。
 
