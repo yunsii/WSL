@@ -1,9 +1,16 @@
 import { $, fs } from "zx";
 import { clone } from "./git.js";
 
+export async function isZshInstalled() {
+  const result = await $`which zsh`;
+  return !!result.stdout.trim();
+}
+
 export async function installZsh() {
-  // ref: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#install-and-set-up-zsh-as-default
-  await $`sudo apt-get --yes install zsh`;
+  if (!(await isZshInstalled())) {
+    // ref: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#install-and-set-up-zsh-as-default
+    await $`sudo apt-get --yes install zsh`;
+  }
   // 将 zsh 设置为默认 Shell，ref: https://askubuntu.com/a/1325754/1681418
   await $`sudo chsh -s "$(which zsh)" "$(whoami)"`;
 }
