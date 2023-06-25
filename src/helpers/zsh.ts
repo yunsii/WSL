@@ -2,8 +2,12 @@ import { $, fs } from "zx";
 import { clone } from "./git.js";
 
 export async function isZshInstalled() {
-  const result = await $`which zsh`;
-  return !!result.stdout.trim();
+  try {
+    const result = await $`which zsh`;
+    return !!result.stdout.trim();
+  } catch (err) {
+    return false;
+  }
 }
 
 export async function installZsh() {
@@ -11,7 +15,19 @@ export async function installZsh() {
     // ref: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH#install-and-set-up-zsh-as-default
     await $`sudo apt-get --yes install zsh`;
   }
-  // 将 zsh 设置为默认 Shell，ref: https://askubuntu.com/a/1325754/1681418
+  const result = await $`echo $SHELL`;
+  if (
+    result.stdout
+      .trim()
+      .split("/")
+      .some((item) => item === "zsh")
+  ) {
+    // 当创建新用户，且新用户 is not in the sudoers file 时，需要由创建人为其指定默认终端为 zsh
+    // sudo chsh -s "$(which zsh)" <new-user-name>
+    return;
+  }
+  // 系统初始化创建的默认用户如果不使用 sudo 设置会报错：Password: chsh: PAM: Authentication failure
+  // 不清楚具体原因
   await $`sudo chsh -s "$(which zsh)" "$(whoami)"`;
 }
 
