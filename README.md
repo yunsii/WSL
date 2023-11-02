@@ -34,7 +34,7 @@ Invoke-WebRequest https://raw.githubusercontent.com/yunsii/WSL/master/ms/win11/m
 Remove-Item -Path migrate-ubuntu2204.ps1
 ```
 
-当 WSL 配置完成后，可考虑迁移到其他盘，默认安装在 Windows 系统盘长久下去合适。
+当 WSL 配置完成后，可考虑迁移到其他盘，默认安装在 Windows 系统盘长久下去不合适。
 
 ### WSL
 
