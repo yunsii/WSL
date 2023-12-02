@@ -10,7 +10,7 @@ export async function configureWslConf(options: IConfigureWslConfOptions) {
   const configStr = fs.readFileSync(`/etc/wsl.conf`, { encoding: "utf-8" });
   const config = ini.parse(configStr);
 
-  if (config.user.default) {
+  if (config.user?.default) {
     // 如果有默认用户了不做任何操作
     return;
   }
